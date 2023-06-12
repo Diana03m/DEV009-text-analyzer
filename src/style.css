@@ -1,0 +1,79 @@
+/*  tipo */
+header {
+    font-family: Arial, Helvetica, sans-serif, cursive;
+    background-color: #a7dfe4;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  footer {
+    background-color: #a7dfe4;
+    padding: 2px;
+  }
+  
+  /*  clase */
+  .metrics {
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    text-align: center;
+    margin-bottom: 20px; 
+  }
+
+  .metric-item {
+    display: inline-block;
+    padding: 10px; 
+    border: 1px solid #60ECF5; 
+    background-color: #60ECF5;
+    border-radius: 5px; 
+    box-sizing: border-box; 
+    margin-bottom: 20px;
+  }
+  
+
+  
+  /*  atributo */
+  textarea[name="user-input"] {
+    display: inline-block;
+    padding: 40px; 
+    border: 1px solid #ccc; 
+    border-radius: 30px; 
+    box-sizing: border-box;
+    background-color: #68dfea; 
+  }
+  
+  /* ID */
+  #reset-button {
+    background-color: #68dfea;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+ }
+
+  
+  
+ .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .sidebar {
+    width: 200px; /* Ancho a  lateral */
+    background-color: #68dfea;
+    padding: 20px;
+  }
+  
+  
+  
+  
+   
+    
