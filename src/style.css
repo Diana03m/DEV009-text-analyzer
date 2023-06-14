@@ -71,6 +71,18 @@ header {
     background-color: #68dfea;
     padding: 20px;
   }
+
+  h2 {
+    background-color: #a7dfe4;
+    padding: 2px;
+  }
+
+  body {
+    background-image: url("/Imagenes/text.jpg");
+    background-size: cover;
+  }
+
+
   
   
   
