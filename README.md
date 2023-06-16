@@ -116,9 +116,17 @@ Instalando y creando herramientas como:
 
   #### Prototipos de baja fidelidad
     A continuación, se muestran los prototipos de baja fidelidad que fueron creados para ver la estructura y el diseño básico del Analizador:
+    
+  ![Prototipo 1](https://github.com/Diana03m/DEV009-text-analyzer/raw/main/Prototipo%201.JPG)
+
 
   ###### Prototipos de alta fidelidad   
     Posteriormente, se desarrollo un prototipo de alta fidelidad para refinar el diseño y la apariencia, por medio de este prototipo se muestrae una representación más cercana a la apariencia final del producto.
+    
+    
+   ![Texto alternativo](https://github.com/Diana03m/DEV009-text-analyzer/raw/main/Prototipoo2.JPG)
+
+
 
   ###### Proceso de Construcción 
 
