@@ -10,7 +10,7 @@
 
   Métricas: en base a lo descrito anteriormente en esta sección, se mostrarán las métricas sobre tu texto, estas incluyen el recuento de caracteres, el recuento de caracteres sin espacios, el recuento de palabras, el recuento de números, la suma total de números y el promedio de longitud de las palabras.
 
-  Al finalizar,  el botón de limpiar: Si deseas borrar el texto ingresado y reiniciar las métricas, sólo haz clic en el botón "Limpiar".
+    Al finalizar,  el botón de limpiar: Si deseas borrar el texto ingresado y reiniciar las métricas, sólo haz clic en el botón "Limpiar".
 
     Las métricas se actualizan automáticamente con la información correspondiente al texto ingresado.
     ¡Continúa utilizando el Analizador de Texto para mejorar tus habilidades de escritura y obtener información útil sobre tus textos!
@@ -72,12 +72,18 @@ clic en un botón.
 
 ## 4. Herramientas utilizadas 
   MIRO: con miro inicie el prototipo de baja fidelidad, en donde se inicio viendo las funciones principales e iniciales del proyecto.
+
   FIGMA: por medio de Figma, se organizo una mejor visión de a donde se queria llegar haciendo un prototipo de alta fidelidad.
-  TRELLO: se planifico y organizo como iba a estar estructurado el proceso del proyecto.
-  HTML: Utilicé HTML para construir la estructura o  esqueleto del Analizador de Texto.
-  CSS: para dar vida y esencia al Analizador de Texto, y de esa forma llamar la atención de los usuarios que ingresen.
-  JavaScript: con JavaScript, use la lógica y funciones para según cada función lograra darle esa interacción a las metricas del texto. 
-  Visual Studio Code: para escribir código según la planificación que iba llevando.
+
+  **TRELLO:** se planifico y organizo como iba a estar estructurado el proceso del proyecto.
+
+  **HTML:** Utilicé HTML para construir la estructura o  esqueleto del Analizador de Texto.
+
+  **CSS:** para dar vida y esencia al Analizador de Texto, y de esa forma llamar la atención de los usuarios que ingresen.
+
+  **JavaScript:** con JavaScript, use la lógica y funciones para según cada función lograra darle esa interacción a las metricas del texto. 
+
+  **Visual Studio Code:** para escribir código según la planificación que iba llevando.
   Git: Utilicé Git como mi sistema de control de versiones para mantener un seguimiento de cada cambio y asegurar la integridad de mi código fuente.
 
 
@@ -90,11 +96,6 @@ En este proyecto, utilizaremos _Github Pages_ para desplegar nuestro sitio web.
 
 El comando `npm run deploy` puede ayudarte con esta tarea y también puedes
  consultar su [documentación oficial](https://docs.github.com/es/pages).
-
-## 5. Criterios de aceptación mínimos del proyecto
-
-A continuación encontrarás los criterios de aceptación mínimos del proyecto
-relacionados con cada objetivo de aprendizaje.
 
 
 ## 6. Pruebas
@@ -141,194 +142,39 @@ Instalando y creando herramientas como:
         -textarea.addEventListener , este se uso para escuchar los eventos del area de texto , con el keyup que se dispara o actualiza cuando se suelta una tecla despuues de presionarla 
 
         -updateMetrics es una función que se encarga de actualizar las métricas en respuesta a los cambios en el texto ingresado en el área de texto. Obtiene el valor del texto ingresado en el área de texto mediante textarea.value paradespues actualizar el contenido de cada elemento de métrica utilizando las funciones del objeto analyzer y el texto ingresado. en donde el ${} con las funciones dentro permite insertar o llamar el resultado de las funciones dentro de una cadena de texto, eso se llama interpolación de cadenas (Es una forma más conveniente de concatenar variables o expresiones en una cadena sin tener que usar el operador de concatenación (+).)
-        
+
 
         -resetButton.addEventListener se utiliza para agregar un escuchador de eventos al botón.
             con esto document.getElementById se utiliza para seleccionar el elemento del botón de reinicio mediante su ID de reset button
 
 
+            Funciones:
 
+             getWordCount: con este aplique el return que nos devuelve el recuento de palabras, con un text split (' ') que nos divide usando el espacio en blanco y con el lenth nos regresa cuantas palabras hay, es como si el text split nos va dividiendo en diferentes partes por cada espacio en blanco que tenga y asi al tener el resultado me devuelve cuantas palabras hay 
 
+             getCharacterCount: con esta funcion solamente recibimos el parametro de text (text ) y devolvemos la longitud total del texto(length)
 
-## 9. Objetivos de aprendizaje
+             getCharacterCountExcludingSpaces: aqui tambien recibimos el parametro del text pero en este caso quitamos espacios y signos... Con cleanedText nos guarda el texto limpio, con replace para reemplazar los caracteres que no son letras, números ni espacios en blanco con una cadena vacía, lo que nos deja solo con palabras y espacios. Creamos la variable de let count = 0 , iniciando en 0, que luego con un bucle for nos va a retroceder cada letra de texto ya limpio para al final verificar que el carácter actual no es un espacio en blanco, no es un carácter vacío y no es un número. Al cumplir estas condiciones, significa que tenemos una palabra. y con count++ y return count , vamos incrementando las paalabras y retornando al contador.
 
-Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en tu proyecto. Piensa en eso al decidir tu estrategia de trabajo.
+             getAverageWordLength: primero  Dividimos el texto en palabras individuales y las guardamos en una variable llamada words. Cada vez que encontramos un espacio en blanco, consideramos que es una nueva palabra. Luego con words.length se cuenta las palabras en el texto y lo guardamos aqui const wordCount, luego sumamos la longitud de cada palabra en el texto y almacenamos la respuesta en la variable totalLength. Luego en const averageLength = wordCount > 0 ? totalLength / wordCount vamos a calcular la longitud promedio de las palabras dividiendo la suma total de las longitudes entre la cantidad de palabras, entonces si no hay palabras en el texto, sacamos la longitud promedio en cero, y al final con parseFloat, usamos para especificar que en el retorno tengamos dos decimales.
 
-### HTML
+             getNumberCount: con const numbers = text.match(/\b\d+(\.\d+)?\b/g) || []; buscamos todos los números en el texto utilizando una expresión regular que sera (/\b\d+(\.\d+)?\b/g) y los almacenamos en la variable numbers. esta La expresión regular busca coincidencias de uno o más dígitos, entonces Si no se encuentran números, asignamos un arreglo vacío a numbers. Iniciamos igual en 0 ... Con forEch reptimos sobre cada número en el arreglo numbers; Convertimos cada número de tipo cadena de texto a un número decimal utilizando la función parseFloat. y al final con una condicional if verificamos el número convertido es un valor numérico válido, usando isNaM que  lo devuelve si el valor no es numero y con isFinite para asegurarnos de que el número no sea infinito. Con este funcion buscamos todos los números en el texto, los cuenta y devuelve la cantidad total de números encontrados.
 
-- [ ] **Uso de HTML semántico**
+              getNumberSum: aplicamos basicamente una estructura similar a la anterior buscando todos los números en un texto y luego suma todos esos números para obtener una suma total, es como contar cuántas cosas hay en un texto, pero en lugar de contarlas, las sumamos.
 
-  <details><summary>Links</summary><p>
 
-  * [HTML semántico](https://curriculum.laboratoria.la/es/topics/html/02-html5/02-semantic-html)
-  * [Semantics - MDN Web Docs Glossary](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
-</p></details>
 
-### CSS
 
-- [ ] **Uso de selectores de CSS**
 
-  <details><summary>Links</summary><p>
 
-  * [Intro a CSS](https://curriculum.laboratoria.la/es/topics/css/01-css/01-intro-css)
-  * [CSS Selectors - MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors)
-</p></details>
 
-- [ ] **Modelo de caja (box model): borde, margen, padding**
 
-  <details><summary>Links</summary><p>
 
-  * [Box Model & Display](https://curriculum.laboratoria.la/es/topics/css/01-css/02-boxmodel-and-display)
-  * [The box model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
-  * [Introduction to the CSS box model - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
-  * [CSS display - MDN](https://developer.mozilla.org/pt-BR/docs/Web/CSS/display)
-  * [display - CSS Tricks](https://css-tricks.com/almanac/properties/d/display/)
-</p></details>
 
-### Web APIs
 
-- [ ] **Uso de selectores del DOM**
 
-  <details><summary>Links</summary><p>
 
-  * [Manipulación del DOM](https://curriculum.laboratoria.la/es/topics/browser/02-dom/03-1-dom-methods-selection)
-  * [Introducción al DOM - MDN](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction)
-  * [Localizando elementos DOM usando selectores - MDN](https://developer.mozilla.org/es/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors)
-</p></details>
 
-- [ ] **Manejo de eventos del DOM (listeners, propagación, delegación)**
-
-  <details><summary>Links</summary><p>
-
-  * [Introducción a eventos - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Events)
-  * [EventTarget.addEventListener() - MDN](https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener)
-  * [EventTarget.removeEventListener() - MDN](https://developer.mozilla.org/es/docs/Web/API/EventTarget/removeEventListener)
-  * [El objeto Event](https://developer.mozilla.org/es/docs/Web/API/Event)
-</p></details>
-
-- [ ] **Manipulación dinámica del DOM**
-
-  <details><summary>Links</summary><p>
-
-  * [Introducción al DOM](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction)
-  * [Node.appendChild() - MDN](https://developer.mozilla.org/es/docs/Web/API/Node/appendChild)
-  * [Document.createElement() - MDN](https://developer.mozilla.org/es/docs/Web/API/Document/createElement)
-  * [Document.createTextNode()](https://developer.mozilla.org/es/docs/Web/API/Document/createTextNode)
-  * [Element.innerHTML - MDN](https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML)
-  * [Node.textContent - MDN](https://developer.mozilla.org/es/docs/Web/API/Node/textContent)
-</p></details>
-
-### JavaScript
-
-- [ ] **Tipos de datos primitivos**
-
-  <details><summary>Links</summary><p>
-
-  * [Valores primitivos - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Data_structures#valores_primitivos)
-</p></details>
-
-- [ ] **Strings (cadenas de caracteres)**
-
-  <details><summary>Links</summary><p>
-
-  * [Strings](https://curriculum.laboratoria.la/es/topics/javascript/06-strings)
-  * [String — Cadena de caracteres - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String)
-</p></details>
-
-- [ ] **Variables (declaración, asignación, ámbito)**
-
-  <details><summary>Links</summary><p>
-
-  * [Valores, tipos de datos y operadores](https://curriculum.laboratoria.la/es/topics/javascript/01-basics/01-values-variables-and-types)
-  * [Variables](https://curriculum.laboratoria.la/es/topics/javascript/01-basics/02-variables)
-</p></details>
-
-- [ ] **Uso de condicionales (if-else, switch, operador ternario, lógica booleana)**
-
-  <details><summary>Links</summary><p>
-
-  * [Estructuras condicionales y repetitivas](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/01-conditionals-and-loops)
-  * [Tomando decisiones en tu código — condicionales - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/conditionals)
-</p></details>
-
-- [ ] **Uso de bucles/ciclos (while, for, for..of)**
-
-  <details><summary>Links</summary><p>
-
-  * [Bucles (Loops)](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/02-loops)
-  * [Bucles e iteración - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Loops_and_iteration)
-</p></details>
-
-- [ ] **Funciones (params, args, return)**
-
-  <details><summary>Links</summary><p>
-
-  * [Funciones (control de flujo)](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/03-functions)
-  * [Funciones clásicas](https://curriculum.laboratoria.la/es/topics/javascript/03-functions/01-classic)
-  * [Arrow Functions](https://curriculum.laboratoria.la/es/topics/javascript/03-functions/02-arrow)
-  * [Funciones — bloques de código reutilizables - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Functions)
-</p></details>
-
-- [ ] **Pruebas unitarias (unit tests)**
-
-  <details><summary>Links</summary><p>
-
-  * [Empezando con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/getting-started)
-</p></details>
-
-- [ ] **Módulos de ECMAScript (ES Modules)**
-
-  <details><summary>Links</summary><p>
-
-  * [import - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/import)
-  * [export - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/export)
-</p></details>
-
-- [ ] **Uso de linter (ESLINT)**
-
-- [ ] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
-
-### Control de Versiones (Git y GitHub)
-
-- [ ] **Git: Instalación y configuración**
-
-- [ ] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
-
-- [ ] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
-
-- [ ] **GitHub: Despliegue con GitHub Pages**
-
-  <details><summary>Links</summary><p>
-
-  * [Sitio oficial de GitHub Pages](https://pages.github.com/)
-</p></details>
-
-### Centrado en el usuario
-
-- [ ] **Diseñar y desarrollar un producto o servicio poniendo a las usuarias en el centro**
-
-### Diseño de producto
-
-- [ ] **Diseñar en distintos niveles de fidelidad**
-
-- [ ] **Seguir los principios básicos de diseño visual**
-
-## 10. Funcionalidades opcionales
-
-Si terminaste con todas las [funcionalidades requeridas](#3-funcionalidades),
-intenta implementar las siguientes funcionalidades opcionales para
-profundizar en los objetivos de aprendizaje del proyecto:
-
-* Que el recuento de palabras y caracteres sea 0 para una entrada de
-  texto vacía.
-* Que el recuento de palabras y caracteres sea 0 para una entrada de
-  texto con solo espacios.
-* Que el recuento de palabras y caracteres sea 0 para una entrada de
-  texto con solo caracteres de puntuación.
-
-Puedes habilitar las pruebas unitarias y en _end to end_ de estos casos
-en los archivos [test/analyzer.spec.js](test/analyzer.spec.js) y
-[read-only/test/e2e/app.spec.js](read-only/test/e2e/app.spec.js).
 
 
 
