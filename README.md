@@ -37,6 +37,10 @@ obtener una comprensión más profunda de los textos.
 _____________________________________________________________________________
 
 _____________________________________________________________________________
+## Consideraciones Generales
+  -Este proyecto lo resolvemos de manera individual.
+  -El rango de tiempo estimado para completar el proyecto es de 1 a 3 Sprints.
+  
 
 ## 3. Funcionalidades
 
@@ -70,7 +74,51 @@ resultado en tiempo real a medida que el usuario escribe su texto:
 3. La aplicación debe permitir limpiar el contenido de la caja de texto haciendo
 clic en un botón.
 
-## 4. Herramientas utilizadas 
+Boilerplate
+La lógica del proyecto debe estar implementada completamente en JavaScript. En este proyecto NO está permitido usar librerías o frameworks, solo JavaScript puro también conocido como Vanilla JavaScript.
+
+Para comenzar este proyecto tendrás que hacer un fork y clonar este repositorio que contiene un boilerplate con tests (pruebas). Un boilerplate es la estructura básica de un proyecto que sirve como un punto de partida con archivos y configuración inicial de dependencias y tests.
+
+El boilerplate que les damos contiene esta estructura:
+
+./
+├── .babelrc
+├── .editorconfig
+├── .eslintrc
+├── .gitignore
+├── README.md
+├── package.json
+├── src
+│   ├── analyzer.js
+│   ├── index.html
+│   ├── index.js
+│   └── style.css
+└── test
+    ├── .eslintrc
+    └── analyzer.spec.js
+Descripción de scripts / archivos
+README.md: debes modificarlo para explicar la información necesaria para el uso de tu aplicación web, así como una introducción a la aplicación, su funcionalidad y decisiones de diseño que tomaron.
+
+.github/workflows: esta carpeta contine la configuracion para la ejecution de Github Actions. No debes modificar esta carpeta ni su contenido.
+
+docs/images: contiene las imagenes de este README.
+
+read-only/: esta carpeta contiene las pruebas de criterios mínimos de aceptación y end-to-end. No debes modificar esta carpeta ni su contenido.
+
+src/index.html: este es el punto de entrada a tu aplicación. Este archivo debe contener tu HTML.
+
+src/style.css: este archivo debe contener las reglas de estilo. Queremos que escribas tus propias reglas, por eso NO está permitido el uso de frameworks de CSS (Bootstrap, Materialize, etc).
+
+src/analyzer.js: acá debes implementar el objeto analyzer, el cual ya está exportado en el boilerplate. Este objeto (analyzer) debe contener seis métodos:
+
+analyzer.getWordCount(text): esta función debe retornar el recuento de palabras que se encuentran en el parámetro text de tipo string.
+analyzer.getCharacterCount(text): esta función debe retornar el recuento de caracteres que se encuentran en el parámetro text de tipo string.
+analyzer.getCharacterCountExcludingSpaces(text): esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro text de tipo string.
+analyzer.getNumberCount(text): esta función debe retornar cúantos números se encuentran en el parámetro text de tipo string.
+analyzer.getNumberSum(text): esta función debe retornar la suma de todos los números que se encuentran en el parámetro text de tipo string.
+analyzer.getAverageWordLength(text): esta función debe retornar la longitud media de palabras que se encuentran en el parámetro text de tipo string. En este caso usa 2 dígitos decimales.
+
+## . Herramientas utilizadas 
   MIRO: con miro inicie el prototipo de baja fidelidad, en donde se inicio viendo las funciones principales e iniciales del proyecto.
 
   FIGMA: por medio de Figma, se organizo una mejor visión de a donde se queria llegar haciendo un prototipo de alta fidelidad.
@@ -98,10 +146,13 @@ El comando `npm run deploy` puede ayudarte con esta tarea y también puedes
  consultar su [documentación oficial](https://docs.github.com/es/pages).
 
 
-## 6. Pruebas
+## . Pruebas
 
 Este proyecto cuenta con 3 conjuntos de pruebas que te ayudarán a conocer si
-cumples los criterios mínimos de aceptación, entre ellas se pueden encontrar pruebas unitarias para ejecutar los metodos encontrados en el Analyzer, con el comando `npm run test`, seguidas de pruebas de criterios minimos de aceptacion con el comando `npm run test:oas`; y para concluir Una prueba end-to-end (E2E), por medio del comando `npm run test:e2e`
+cumples los criterios mínimos de aceptación, entre ellas se pueden encontrar pruebas unitarias para ejecutar los metodos encontrados en el Analyzer, con el comando `npm run test`, seguidas de pruebas de criterios minimos de aceptacion con el comando `npm run test:oas`; y para concluir Una prueba end-to-end (E2E), por medio del comando `npm run test:e2e` 
+
+Github actions
+Este repositorio usa una GitHub Action para ejecutar automáticamente las pruebas unitarias, pruebas de criterios mínimos de aceptación y y pruebas end-to-end cada vez que se hagas un push en la rama main de tu repositorio.
 
 ### Prepara tu PC para trabajar
 Para iniciar el proyecto primero se llevaron a cabo una serie de pasos para que el equipo que se vaya a utilizar quedara en funcionamiento acorde a los requerimientos: 
@@ -120,47 +171,17 @@ Instalando y creando herramientas como:
   ###### Prototipos de alta fidelidad   
     Posteriormente, se desarrollo un prototipo de alta fidelidad para refinar el diseño y la apariencia, por medio de este prototipo se muestrae una representación más cercana a la apariencia final del producto.
 
-  ###### Proceso de Construcción 
+  
+  ____________________________________________________________________________________________________
+  ¿Cómo unirte al proyecto?
+    Si deseas unirte al desarrollo del Analizador de Texto, sigue estos pasos:
 
-    Para llevar a cabo este Proyecto me base en hacer paso a paso los Críterios de aceptación  mínima del proyecto:
-      *Empezando por el esqueleto del html con una estructura básica haciendo una etiqueta <header>, padre de <h1> donde escribí el título de mi Text Analyzer; seguido de un <textarea>, que sirve para crear un area de texto en donde los usuarios van a escribir o pegar sus escritos, este lleva atributo name, y valor o aisgnandole el nombre de  user-input.
-      * Luego vienen los <ul> que es una lista desordenada, con 6 hijos <li> que nos dan cada metrica (estos hijos igual deben estar segun el orden dado en el readme ), y llevan atributo class con el nombre de metric-item para mis metricas correspondientes.
-      *Al final un <footer>, padre de un <p> que escribe mi nombre , este footer, me define el pie de página.
-      * y finalmente un <button>, con el texto limpiar, para vaciar nuestra area de texto, con un id o nombre de reset-button para poder llamarlo en el JavaScript.
-      *Luego ordene esa estructura de modo que me quedaba primero el ul, luego el textarea, seguido de el boton, y al final el footer, para que tuviera como mejor orden en el html.
-      *De alli me fui a el css para darle vida, y siguiendo el paso a paso, cree un selector para cada elemento:
-          Siendo header y footer con Selectores de tipo, escribiendolo solo el nombre de la etiqueta
-          ul y sus li con selector de class, que se caracteriza por llevar punto (.), con propiedades de modelo de caja con backround, border, margin, padding.
-          textarea con selector de atributo, entre corchetes ([])
-          Button con selector de id, usando el simbolo # seguido de mi id para dar estilo.
-
-      * De ahi me fui al Index. js usando el 
-        -querySelector acompañado de document, usando una cons text tarea, para seleccionar el primer <textarea> que encuentra en el documento y  asignar a la variable textarea. y con document.querySelectorAll para seleccionar todos los elementos con  .metric-item y se asignan a la variable metrics(con el const metric)
-
-        -getElementById, para seleccionar el elemento del botón de reinicio por su ID.
-
-        -textarea.addEventListener , este se uso para escuchar los eventos del area de texto , con el keyup que se dispara o actualiza cuando se suelta una tecla despuues de presionarla 
-
-        -updateMetrics es una función que se encarga de actualizar las métricas en respuesta a los cambios en el texto ingresado en el área de texto. Obtiene el valor del texto ingresado en el área de texto mediante textarea.value paradespues actualizar el contenido de cada elemento de métrica utilizando las funciones del objeto analyzer y el texto ingresado. en donde el ${} con las funciones dentro permite insertar o llamar el resultado de las funciones dentro de una cadena de texto, eso se llama interpolación de cadenas (Es una forma más conveniente de concatenar variables o expresiones en una cadena sin tener que usar el operador de concatenación (+).)
-
-
-        -resetButton.addEventListener se utiliza para agregar un escuchador de eventos al botón.
-            con esto document.getElementById se utiliza para seleccionar el elemento del botón de reinicio mediante su ID de reset button
-
-
-            Funciones:
-
-             getWordCount: con este aplique el return que nos devuelve el recuento de palabras, con un text split (' ') que nos divide usando el espacio en blanco y con el lenth nos regresa cuantas palabras hay, es como si el text split nos va dividiendo en diferentes partes por cada espacio en blanco que tenga y asi al tener el resultado me devuelve cuantas palabras hay 
-
-             getCharacterCount: con esta funcion solamente recibimos el parametro de text (text ) y devolvemos la longitud total del texto(length)
-
-             getCharacterCountExcludingSpaces: aqui tambien recibimos el parametro del text pero en este caso quitamos espacios y signos... Con cleanedText nos guarda el texto limpio, con replace para reemplazar los caracteres que no son letras, números ni espacios en blanco con una cadena vacía, lo que nos deja solo con palabras y espacios. Creamos la variable de let count = 0 , iniciando en 0, que luego con un bucle for nos va a retroceder cada letra de texto ya limpio para al final verificar que el carácter actual no es un espacio en blanco, no es un carácter vacío y no es un número. Al cumplir estas condiciones, significa que tenemos una palabra. y con count++ y return count , vamos incrementando las paalabras y retornando al contador.
-
-             getAverageWordLength: primero  Dividimos el texto en palabras individuales y las guardamos en una variable llamada words. Cada vez que encontramos un espacio en blanco, consideramos que es una nueva palabra. Luego con words.length se cuenta las palabras en el texto y lo guardamos aqui const wordCount, luego sumamos la longitud de cada palabra en el texto y almacenamos la respuesta en la variable totalLength. Luego en const averageLength = wordCount > 0 ? totalLength / wordCount vamos a calcular la longitud promedio de las palabras dividiendo la suma total de las longitudes entre la cantidad de palabras, entonces si no hay palabras en el texto, sacamos la longitud promedio en cero, y al final con parseFloat, usamos para especificar que en el retorno tengamos dos decimales.
-
-             getNumberCount: con const numbers = text.match(/\b\d+(\.\d+)?\b/g) || []; buscamos todos los números en el texto utilizando una expresión regular que sera (/\b\d+(\.\d+)?\b/g) y los almacenamos en la variable numbers. esta La expresión regular busca coincidencias de uno o más dígitos, entonces Si no se encuentran números, asignamos un arreglo vacío a numbers. Iniciamos igual en 0 ... Con forEch reptimos sobre cada número en el arreglo numbers; Convertimos cada número de tipo cadena de texto a un número decimal utilizando la función parseFloat. y al final con una condicional if verificamos el número convertido es un valor numérico válido, usando isNaM que  lo devuelve si el valor no es numero y con isFinite para asegurarnos de que el número no sea infinito. Con este funcion buscamos todos los números en el texto, los cuenta y devuelve la cantidad total de números encontrados.
-
-              getNumberSum: aplicamos basicamente una estructura similar a la anterior buscando todos los números en un texto y luego suma todos esos números para obtener una suma total, es como contar cuántas cosas hay en un texto, pero en lugar de contarlas, las sumamos.
+    - Clona este repositorio en tu computadora local.
+    - Abre el código en tu editor de código favorito.
+    - Explora los archivos HTML, CSS y JavaScript para familiarizarte con la estructura y el funcionamiento del proyecto.
+    - Haz mejoras o implementa nuevas funcionalidades según tus habilidades y creatividad.
+   - Realiza commits y push a tu repositorio personal.
+    Siéntete libre de  compartir tus cambios con nosotros.
 
 
 
